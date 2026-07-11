@@ -77,3 +77,32 @@
   margin-top: 0;
   font-size: 1rem;
 }
+.search-bar {
+  margin-bottom: 32px;
+}
+
+.search-bar__label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.search-bar__input {
+  width: 100%;
+  padding: 14px 18px;
+  color: #fafafa;
+  background: #18181b;
+  border: 1px solid #3f3f46;
+  border-radius: 12px;
+  outline: none;
+}
+
+.search-bar__input:focus {
+  border-color: #a855f7;
+}
+
+.empty-message {
+  padding: 40px 20px;
+  text-align: center;
+  color: #a1a1aa;
+}
