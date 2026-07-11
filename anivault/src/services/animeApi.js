@@ -1,15 +1,13 @@
-const BASE_URL = 'https://api.jikan.moe/v4';
+const API_BASE_URL = "https://api.jikan.moe/v4";
 
-export const getTopAnime = async () => {
-  const res = await fetch(`${BASE_URL}/top/anime`);
-  if (!res.ok) throw new Error('Error al obtener el top de animes');
-  const { data } = await res.json();
-  return data;
-};
+export async function getTopAnime() {
+  const response = await fetch(`${API_BASE_URL}/top/anime?limit=20`);
 
-export const searchAnime = async (query) => {
-  const res = await fetch(`${BASE_URL}/anime?q=${encodeURIComponent(query)}&limit=20`);
-  if (!res.ok) throw new Error('Error al buscar anime');
-  const { data } = await res.json();
-  return data;
-};
+  if (!response.ok) {
+    throw new Error("No se pudieron cargar los animes.");
+  }
+
+  const result = await response.json();
+
+  return result.data;
+}

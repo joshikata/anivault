@@ -1,11 +1,13 @@
-const AnimeGrid = ({ animes }) => {
+import AnimeCard from "./AnimeCard";
+
+function AnimeGrid({ animeList }) {
   return (
-    <div className="anime-grid">
-      {animes?.map((anime) => (
-        <div key={anime.mal_id}>{anime.title}</div>
+    <section className="anime-grid">
+      {animeList.map((anime) => (
+        <AnimeCard key={anime.mal_id} anime={anime} />
       ))}
-    </div>
+    </section>
   );
-};
+}
 
 export default AnimeGrid;

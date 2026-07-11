@@ -1,27 +1,26 @@
 import "./App.css";
+import AnimeGrid from "./components/anime/AnimeGrid";
+import ErrorMessage from "./components/common/ErrorMessage";
+import Loading from "./components/common/Loading";
+import { useAnime } from "./hooks/useAnime";
 
 function App() {
+  const { animeList, loading, error } = useAnime();
+
   return (
     <div className="app">
       <header className="hero">
         <p className="hero__eyebrow">Anime discovery app</p>
         <h1>AniVault</h1>
-        <p className="hero__description">
-          Explora anime, guarda tus favoritos y bloquea los títulos que no
-          quieras volver a ver.
-        </p>
+        <p>Explora anime y organiza tus títulos favoritos.</p>
       </header>
 
       <main className="main-content">
-        <section className="placeholder">
-          <h2>Tu bóveda de anime está lista ✨</h2>
-          <p>En el siguiente paso cargaremos los datos desde Jikan API.</p>
-        </section>
-      </main>
+        {loading && <Loading />}
+        {error && <ErrorMessage message={error} />}
 
-      <footer className="footer">
-        <p>Desarrollado por Fernanda</p>
-      </footer>
+        {!loading && !error && <AnimeGrid animeList={animeList} />}
+      </main>
     </div>
   );
 }

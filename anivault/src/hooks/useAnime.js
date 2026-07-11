@@ -1,42 +1,32 @@
-import { useState, useEffect } from 'react';
-import { searchAnime, getTopAnime } from '../services/animeApi';
+import { useEffect, useState } from "react";
+import { getTopAnime } from "../services/animeApi";
 
-const useAnime = () => {
-  const [animes, setAnimes] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-
-  const fetchTop = async () => {
-    setLoading(true);
-    setError(null);
-    try {
-      const data = await getTopAnime();
-      setAnimes(data);
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const search = async (query) => {
-    setLoading(true);
-    setError(null);
-    try {
-      const data = await searchAnime(query);
-      setAnimes(data);
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setLoading(false);
-    }
-  };
+export function useAnime() {
+  const [animeList, setAnimeList] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
   useEffect(() => {
-    fetchTop();
+    async function loadAnime() {
+      try {
+        setLoading(true);
+        setError("");
+
+        const animeData = await getTopAnime();
+        setAnimeList(animeData);
+      } catch (requestError) {
+        setError(requestError.message);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    loadAnime();
   }, []);
 
-  return { animes, loading, error, search };
-};
-
-export default useAnime;
+  return {
+    animeList,
+    loading,
+    error,
+  };
+}

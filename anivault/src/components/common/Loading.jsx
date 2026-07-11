@@ -1,5 +1,5 @@
-const Loading = () => {
-  return <div className="loading">Cargando...</div>;
-};
+function Loading() {
+  return <p>Cargando animes...</p>;
+}
 
 export default Loading;
