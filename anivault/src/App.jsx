@@ -4,6 +4,7 @@ import "./App.css";
 import AnimeGrid from "./components/anime/AnimeGrid";
 import BlockedPanel from "./components/anime/BlockedPanel";
 import SearchBar from "./components/anime/SearchBar";
+import Stats from "./components/anime/Stats";
 import ErrorMessage from "./components/common/ErrorMessage";
 import Loading from "./components/common/Loading";
 import FavoritesPanel from "./components/anime/FavoritesPanel";
@@ -50,6 +51,8 @@ function App() {
       anime.title.toLowerCase().includes(searchTerm.trim().toLowerCase())
     );
 
+  const totalItems = animeList.length;
+
   return (
     <div className="app">
       <header className="hero">
@@ -66,6 +69,12 @@ function App() {
           <SearchBar
             searchTerm={searchTerm}
             onSearchChange={setSearchTerm}
+          />
+
+          <Stats
+            total={totalItems}
+            favorites={favorites.length}
+            blocked={blocked.length}
           />
 
           {loading && <Loading />}
