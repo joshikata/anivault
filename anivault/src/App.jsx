@@ -110,6 +110,14 @@ function App() {
           />
         </aside>
       </div>
+
+      <section className="team-section" aria-labelledby="team-title">
+        <p className="team-section__eyebrow">Integrante del proyecto</p>
+        <h2 id="team-title">Fernanda De La Mora</h2>
+        <p>
+          Desarrollo de interfaz, organización de componentes y persistencia de favoritos y bloqueados.
+        </p>
+      </section>
     </div>
   );
 }
