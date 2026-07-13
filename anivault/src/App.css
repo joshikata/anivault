@@ -24,6 +24,12 @@
   align-items: start;
 }
 
+.sidebar-panels {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
 .hero__eyebrow {
   margin: 0 0 8px;
   font-size: 0.8rem;
@@ -143,8 +149,51 @@
   background: #b91c1c;
 }
 
+.anime-card-actions {
+  display: grid;
+  gap: 8px;
+}
+
+.blocked-btn {
+  width: 100%;
+  padding: 10px;
+  background: #262433;
+  border: 1px solid #4b5563;
+  border-radius: 8px;
+  color: #f8fafc;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.blocked-btn:hover {
+  background: #37334a;
+  border-color: #a855f7;
+}
+
+.blocked-btn.active {
+  background: #7c2d12;
+  border-color: #f97316;
+}
+
+.blocked-btn.active:hover {
+  background: #9a3412;
+}
+
 /* Favorites Panel Styles */
 .favorites-panel {
+  position: sticky;
+  top: 32px;
+  background: #18181b;
+  border: 1px solid #3f3f46;
+  border-radius: 12px;
+  padding: 16px;
+  max-height: calc(100vh - 64px);
+  overflow-y: auto;
+}
+
+.blocked-panel {
   position: sticky;
   top: 32px;
   background: #18181b;

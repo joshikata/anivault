@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 
 import AnimeGrid from "./components/anime/AnimeGrid";
+import BlockedPanel from "./components/anime/BlockedPanel";
 import SearchBar from "./components/anime/SearchBar";
 import ErrorMessage from "./components/common/ErrorMessage";
 import Loading from "./components/common/Loading";
@@ -13,25 +14,41 @@ function App() {
   const { animeList, loading, error } = useAnime();
   const [searchTerm, setSearchTerm] = useState("");
   const [favorites, setFavorites] = useLocalStorage("anivault_favorites", []);
-
-  const filteredAnime = animeList.filter((anime) =>
-    anime.title
-      .toLowerCase()
-      .includes(searchTerm.trim().toLowerCase())
-  );
+  const [blocked, setBlocked] = useLocalStorage("anivault_blocked", []);
 
   const toggleFavorite = (anime) => {
     const isFav = favorites.some((fav) => fav.mal_id === anime.mal_id);
+
     if (isFav) {
       setFavorites(favorites.filter((fav) => fav.mal_id !== anime.mal_id));
-    } else {
+      return;
+    }
+
+    if (!blocked.some((item) => item.mal_id === anime.mal_id)) {
       setFavorites([...favorites, anime]);
     }
   };
 
-  const isFavorite = (animeId) => {
-    return favorites.some((fav) => fav.mal_id === animeId);
+  const toggleBlocked = (anime) => {
+    const isBlocked = blocked.some((item) => item.mal_id === anime.mal_id);
+
+    if (isBlocked) {
+      setBlocked(blocked.filter((item) => item.mal_id !== anime.mal_id));
+      return;
+    }
+
+    setBlocked([...blocked, anime]);
+    setFavorites(favorites.filter((item) => item.mal_id !== anime.mal_id));
   };
+
+  const isFavorite = (animeId) => favorites.some((fav) => fav.mal_id === animeId);
+  const isBlocked = (animeId) => blocked.some((item) => item.mal_id === animeId);
+
+  const filteredAnime = animeList
+    .filter((anime) => !isBlocked(anime.mal_id))
+    .filter((anime) =>
+      anime.title.toLowerCase().includes(searchTerm.trim().toLowerCase())
+    );
 
   return (
     <div className="app">
@@ -61,7 +78,9 @@ function App() {
             <AnimeGrid 
               animeList={filteredAnime}
               onToggleFavorite={toggleFavorite}
+              onToggleBlocked={toggleBlocked}
               isFavorite={isFavorite}
+              isBlocked={isBlocked}
             />
           )}
 
@@ -71,10 +90,16 @@ function App() {
             </p>
           )}
         </main>
-        <FavoritesPanel 
-          favorites={favorites}
-          onRemoveFavorite={toggleFavorite}
-        />
+        <aside className="sidebar-panels">
+          <FavoritesPanel
+            favorites={favorites}
+            onRemoveFavorite={toggleFavorite}
+          />
+          <BlockedPanel
+            blocked={blocked}
+            onRemoveBlocked={toggleBlocked}
+          />
+        </aside>
       </div>
     </div>
   );
