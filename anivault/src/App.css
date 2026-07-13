@@ -54,6 +54,16 @@
   font-size: 1.4rem;
 }
 
+.team-section__list {
+  margin: 0 0 12px;
+  padding-left: 20px;
+  color: #f4f4f5;
+}
+
+.team-section__list li {
+  margin-bottom: 4px;
+}
+
 .team-section p:last-child {
   margin: 0;
   color: #d4d4d8;

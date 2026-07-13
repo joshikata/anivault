@@ -8,42 +8,23 @@ import Stats from "./components/anime/Stats";
 import ErrorMessage from "./components/common/ErrorMessage";
 import Loading from "./components/common/Loading";
 import FavoritesPanel from "./components/anime/FavoritesPanel";
+import TeamSection from "./components/layout/TeamSection";
 import { useAnime } from "./hooks/useAnime";
-import useLocalStorage from "./hooks/useLocalStorage";
+import useAnimeCollections from "./hooks/useAnimeCollections";
 
 function App() {
   const { animeList, loading, error } = useAnime();
   const [searchTerm, setSearchTerm] = useState("");
-  const [favorites, setFavorites] = useLocalStorage("anivault_favorites", []);
-  const [blocked, setBlocked] = useLocalStorage("anivault_blocked", []);
-
-  const toggleFavorite = (anime) => {
-    const isFav = favorites.some((fav) => fav.mal_id === anime.mal_id);
-
-    if (isFav) {
-      setFavorites(favorites.filter((fav) => fav.mal_id !== anime.mal_id));
-      return;
-    }
-
-    if (!blocked.some((item) => item.mal_id === anime.mal_id)) {
-      setFavorites([...favorites, anime]);
-    }
-  };
-
-  const toggleBlocked = (anime) => {
-    const isBlocked = blocked.some((item) => item.mal_id === anime.mal_id);
-
-    if (isBlocked) {
-      setBlocked(blocked.filter((item) => item.mal_id !== anime.mal_id));
-      return;
-    }
-
-    setBlocked([...blocked, anime]);
-    setFavorites(favorites.filter((item) => item.mal_id !== anime.mal_id));
-  };
-
-  const isFavorite = (animeId) => favorites.some((fav) => fav.mal_id === animeId);
-  const isBlocked = (animeId) => blocked.some((item) => item.mal_id === animeId);
+  const {
+    favorites,
+    blocked,
+    favoriteCount,
+    blockedCount,
+    isFavorite,
+    isBlocked,
+    toggleFavorite,
+    toggleBlocked,
+  } = useAnimeCollections();
 
   const filteredAnime = animeList
     .filter((anime) => !isBlocked(anime.mal_id))
@@ -73,8 +54,8 @@ function App() {
 
           <Stats
             total={totalItems}
-            favorites={favorites.length}
-            blocked={blocked.length}
+            favorites={favoriteCount}
+            blocked={blockedCount}
           />
 
           {loading && <Loading />}
@@ -111,13 +92,7 @@ function App() {
         </aside>
       </div>
 
-      <section className="team-section" aria-labelledby="team-title">
-        <p className="team-section__eyebrow">Integrante del proyecto</p>
-        <h2 id="team-title">Fernanda De La Mora</h2>
-        <p>
-          Desarrollo de interfaz, organización de componentes y persistencia de favoritos y bloqueados.
-        </p>
-      </section>
+      <TeamSection members={["Fernanda De La Mora"]} />
     </div>
   );
 }
