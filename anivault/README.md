@@ -1,16 +1,74 @@
-# React + Vite
+<div align="center">
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 🎌 AniVault
 
-Currently, two official plugins are available:
+A modern React application to discover and manage your favorite anime using the Jikan API.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+<p>
 
-## React Compiler
+<img src="https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=white"/>
+<img src="https://img.shields.io/badge/Vite-7-646CFF?style=for-the-badge&logo=vite&logoColor=white"/>
+<img src="https://img.shields.io/badge/Bootstrap-5-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white"/>
+<img src="https://img.shields.io/badge/JavaScript-ES6-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"/>
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+</p>
 
-## Expanding the ESLint configuration
+</div>
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## ✨ Features
+
+- 🔍 Search anime
+- ❤️ Add favorites
+- 🚫 Block anime
+- 💾 Local Storage
+- 📱 Responsive design
+
+---
+
+## 🛠 Tech Stack
+
+<p>
+
+<img src="https://skillicons.dev/icons?i=react,vite,bootstrap,js,css,git,github"/>
+
+</p>
+
+---
+
+## 🚀 Installation
+
+```bash
+git clone https://github.com/joshikata/anivault.git
+cd anivault
+npm install
+npm run dev
+```
+
+---
+
+## 📂 Project Structure
+
+```text
+src/
+├── components/
+├── hooks/
+├── services/
+├── utils/
+└── assets/
+```
+
+---
+
+## 📸 Preview
+
+> Coming soon...
+
+---
+
+## 👩‍💻 Author
+
+**Fernanda**
+
+GitHub → https://github.com/joshikata
