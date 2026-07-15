@@ -35,9 +35,9 @@
   width: min(1100px, 100%);
   margin: 0 auto;
   padding: 22px 24px;
-  border: 1px solid #3f3f46;
+  border: 1px solid #5b3b89;
   border-radius: 20px;
-  background: linear-gradient(180deg, rgba(31, 31, 36, 0.92) 0%, rgba(24, 24, 27, 0.96) 100%);
+  background: linear-gradient(180deg, rgba(58, 32, 88, 0.35) 0%, rgba(24, 24, 27, 0.96) 100%);
 }
 
 .team-section__eyebrow {
@@ -74,6 +74,7 @@
   margin: 0 0 8px;
   font-size: 0.8rem;
   font-weight: 700;
+  color: #c4b5fd;
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
@@ -81,6 +82,10 @@
 .hero h1 {
   margin: 0;
   font-size: clamp(3rem, 9vw, 6rem);
+  background: linear-gradient(90deg, #e9d5ff 0%, #c084fc 45%, #a855f7 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .hero__description {
@@ -111,9 +116,9 @@
 
 .anime-card {
   overflow: hidden;
-  border: 1px solid #3f3f46;
+  border: 1px solid #4c3b67;
   border-radius: 18px;
-  background: #18181b;
+  background: linear-gradient(180deg, #20172f 0%, #18181b 100%);
 }
 
 .anime-card img {
@@ -143,9 +148,9 @@
 
 .stats-card {
   padding: 16px 18px;
-  border: 1px solid #3f3f46;
+  border: 1px solid #5b3b89;
   border-radius: 16px;
-  background: linear-gradient(180deg, #1f1f24 0%, #18181b 100%);
+  background: linear-gradient(180deg, #2f1f45 0%, #1d1824 100%);
 }
 
 .stats-card__label {
@@ -220,14 +225,15 @@
   width: 100%;
   padding: 14px 18px;
   color: #fafafa;
-  background: #18181b;
-  border: 1px solid #3f3f46;
+  background: #1d1529;
+  border: 1px solid #5b3b89;
   border-radius: 12px;
   outline: none;
 }
 
 .search-bar__input:focus {
-  border-color: #a855f7;
+  border-color: #c084fc;
+  box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.2);
 }
 
 .empty-message {
@@ -241,8 +247,8 @@
   width: 100%;
   margin-top: 8px;
   padding: 10px;
-  background: #27272a;
-  border: 1px solid #3f3f46;
+  background: #2c1f3f;
+  border: 1px solid #6d4fa3;
   border-radius: 8px;
   color: #fafafa;
   font-size: 0.9rem;
@@ -252,17 +258,17 @@
 }
 
 .favorite-btn:hover {
-  background: #3f3f46;
-  border-color: #52525b;
+  background: #3c2b58;
+  border-color: #a855f7;
 }
 
 .favorite-btn.active {
-  background: #dc2626;
-  border-color: #dc2626;
+  background: #7c3aed;
+  border-color: #7c3aed;
 }
 
 .favorite-btn.active:hover {
-  background: #b91c1c;
+  background: #6d28d9;
 }
 
 .anime-card-actions {
@@ -273,8 +279,8 @@
 .blocked-btn {
   width: 100%;
   padding: 10px;
-  background: #262433;
-  border: 1px solid #4b5563;
+  background: #231a34;
+  border: 1px solid #6d4fa3;
   border-radius: 8px;
   color: #f8fafc;
   font-size: 0.9rem;
@@ -284,25 +290,25 @@
 }
 
 .blocked-btn:hover {
-  background: #37334a;
-  border-color: #a855f7;
+  background: #3b2d56;
+  border-color: #c084fc;
 }
 
 .blocked-btn.active {
-  background: #7c2d12;
-  border-color: #f97316;
+  background: #8b5cf6;
+  border-color: #8b5cf6;
 }
 
 .blocked-btn.active:hover {
-  background: #9a3412;
+  background: #7c3aed;
 }
 
 /* Favorites Panel Styles */
 .favorites-panel {
   position: sticky;
   top: 32px;
-  background: #18181b;
-  border: 1px solid #3f3f46;
+  background: #1a1624;
+  border: 1px solid #5b3b89;
   border-radius: 12px;
   padding: 16px;
   max-height: calc(100vh - 64px);
@@ -312,8 +318,8 @@
 .blocked-panel {
   position: sticky;
   top: 32px;
-  background: #18181b;
-  border: 1px solid #3f3f46;
+  background: #1a1624;
+  border: 1px solid #5b3b89;
   border-radius: 12px;
   padding: 16px;
   max-height: calc(100vh - 64px);
@@ -336,7 +342,7 @@
 }
 
 .favorites-count {
-  background: #dc2626;
+  background: #7c3aed;
   color: white;
   padding: 2px 8px;
   border-radius: 12px;
@@ -354,15 +360,15 @@
   display: flex;
   gap: 10px;
   padding: 10px;
-  background: #27272a;
+  background: #251d33;
   border-radius: 8px;
-  border: 1px solid #3f3f46;
+  border: 1px solid #5b3b89;
   transition: all 0.3s ease;
 }
 
 .favorite-item:hover {
-  background: #3f3f46;
-  border-color: #52525b;
+  background: #34254d;
+  border-color: #a855f7;
 }
 
 .favorite-img {
@@ -395,7 +401,7 @@
 
 .remove-btn {
   padding: 4px 8px;
-  background: #dc2626;
+  background: #7c3aed;
   border: none;
   border-radius: 4px;
   color: white;
@@ -406,7 +412,7 @@
 }
 
 .remove-btn:hover {
-  background: #b91c1c;
+  background: #6d28d9;
 }
 
 .empty-favorites {
