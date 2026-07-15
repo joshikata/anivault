@@ -2,16 +2,17 @@
 
 # 🎌 AniVault
 
-A modern React application to discover and manage your favorite anime using the Jikan API.
+### *Search • Discover • Save Your Favorite Anime*
 
-<p>
+<img src="./anivault/src/assets/banner.png" alt="AniVault Banner" width="100%"/>
+
+<br>
 
 <img src="https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=white"/>
 <img src="https://img.shields.io/badge/Vite-7-646CFF?style=for-the-badge&logo=vite&logoColor=white"/>
 <img src="https://img.shields.io/badge/Bootstrap-5-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white"/>
 <img src="https://img.shields.io/badge/JavaScript-ES6-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"/>
-
-</p>
+<img src="https://img.shields.io/badge/API-Jikan-red?style=for-the-badge"/>
 
 </div>
 
@@ -20,7 +21,7 @@ A modern React application to discover and manage your favorite anime using the 
 ## ✨ Features
 
 - 🔍 Search anime
-- ❤️ Add favorites
+- ❤️ Add and remove favorites
 - 🚫 Block anime
 - 💾 Local Storage
 - 📱 Responsive design
@@ -29,9 +30,9 @@ A modern React application to discover and manage your favorite anime using the 
 
 ## 🛠 Tech Stack
 
-<p>
+<p align="center">
 
-<img src="https://skillicons.dev/icons?i=react,vite,bootstrap,js,css,git,github"/>
+<img src="https://skillicons.dev/icons?i=react,vite,bootstrap,js,css,git,github,vscode"/>
 
 </p>
 
@@ -48,26 +49,16 @@ npm run dev
 
 ---
 
-## 📂 Project Structure
+## 🌐 Deploy
 
-```text
-anivault/
-├── src/
-├── public/
-├── package.json
-└── vite.config.js
-```
+Production URL (Vercel):
 
----
-
-## 📸 Preview
-
-> Coming soon...
+- https://anivault-umber.vercel.app
 
 ---
 
 ## 👩‍💻 Author
 
-**Fernanda De La Mora**
+**Fernanda**
 
 GitHub → https://github.com/joshikata
